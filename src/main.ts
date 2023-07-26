@@ -10,11 +10,7 @@ import {TestRunResult} from './test-results'
 import {getAnnotations} from './report/get-annotations'
 import {getReport} from './report/get-report'
 
-// import {DartJsonParser} from './parsers/dart-json/dart-json-parser'
-// import {DotnetTrxParser} from './parsers/dotnet-trx/dotnet-trx-parser'
 import {JavaJunitParser} from './parsers/java-junit/java-junit-parser'
-// import {JestJunitParser} from './parsers/jest-junit/jest-junit-parser'
-// import {MochaJsonParser} from './parsers/mocha-json/mocha-json-parser'
 
 import {normalizeDirPath, normalizeFilePath} from './utils/path-utils'
 import {getCheckRunContext} from './utils/github-utils'
@@ -35,7 +31,7 @@ class TestReporter {
   readonly name = core.getInput('name', {required: true})
   readonly path = core.getInput('path', {required: true})
   readonly pathReplaceBackslashes = core.getInput('path-replace-backslashes', {required: false}) === 'true'
-  readonly reporter = core.getInput('reporter', {required: true})
+  readonly reporter = 'java-junit'
   readonly listSuites = core.getInput('list-suites', {required: true}) as 'all' | 'failed'
   readonly listTests = core.getInput('list-tests', {required: true}) as 'all' | 'failed' | 'none'
   readonly maxAnnotations = parseInt(core.getInput('max-annotations', {required: true}))
@@ -204,22 +200,6 @@ class TestReporter {
 
   getParser(reporter: string, options: ParseOptions): TestParser {
     return new JavaJunitParser(options)
-    // switch (reporter) {
-    //   // case 'dart-json':
-    //   //   return new DartJsonParser(options, 'dart')
-    //   // case 'dotnet-trx':
-    //   //   return new DotnetTrxParser(options)
-    //   // case 'flutter-json':
-    //   //   return new DartJsonParser(options, 'flutter')
-    //   case 'java-junit':
-    //     return new JavaJunitParser(options)
-    //   case 'jest-junit':
-    //     return new JestJunitParser(options)
-    //   case 'mocha-json':
-    //     return new MochaJsonParser(options)
-    //   default:
-    //     throw new Error(`Input variable 'reporter' is set to invalid value '${reporter}'`)
-    // }
   }
 }
 

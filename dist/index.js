@@ -260,11 +260,7 @@ const artifact_provider_1 = __nccwpck_require__(7171);
 const local_file_provider_1 = __nccwpck_require__(9399);
 const get_annotations_1 = __nccwpck_require__(5867);
 const get_report_1 = __nccwpck_require__(3737);
-// import {DartJsonParser} from './parsers/dart-json/dart-json-parser'
-// import {DotnetTrxParser} from './parsers/dotnet-trx/dotnet-trx-parser'
 const java_junit_parser_1 = __nccwpck_require__(676);
-// import {JestJunitParser} from './parsers/jest-junit/jest-junit-parser'
-// import {MochaJsonParser} from './parsers/mocha-json/mocha-json-parser'
 const path_utils_1 = __nccwpck_require__(4070);
 const github_utils_1 = __nccwpck_require__(3522);
 const markdown_utils_1 = __nccwpck_require__(6482);
@@ -288,7 +284,7 @@ class TestReporter {
         this.name = core.getInput('name', { required: true });
         this.path = core.getInput('path', { required: true });
         this.pathReplaceBackslashes = core.getInput('path-replace-backslashes', { required: false }) === 'true';
-        this.reporter = core.getInput('reporter', { required: true });
+        this.reporter = 'java-junit';
         this.listSuites = core.getInput('list-suites', { required: true });
         this.listTests = core.getInput('list-tests', { required: true });
         this.maxAnnotations = parseInt(core.getInput('max-annotations', { required: true }));
@@ -416,22 +412,6 @@ class TestReporter {
     }
     getParser(reporter, options) {
         return new java_junit_parser_1.JavaJunitParser(options);
-        // switch (reporter) {
-        //   // case 'dart-json':
-        //   //   return new DartJsonParser(options, 'dart')
-        //   // case 'dotnet-trx':
-        //   //   return new DotnetTrxParser(options)
-        //   // case 'flutter-json':
-        //   //   return new DartJsonParser(options, 'flutter')
-        //   case 'java-junit':
-        //     return new JavaJunitParser(options)
-        //   case 'jest-junit':
-        //     return new JestJunitParser(options)
-        //   case 'mocha-json':
-        //     return new MochaJsonParser(options)
-        //   default:
-        //     throw new Error(`Input variable 'reporter' is set to invalid value '${reporter}'`)
-        // }
     }
 }
 main();

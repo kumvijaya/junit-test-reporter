@@ -1,6 +1,6 @@
-name: Test Reporter
+name: Junit Test Reporter
 description: |
-  Shows test results in GitHub UI: Java (JUnit)
+  Shows test results in GitHub UI for Java (JUnit)
 author: daposon1 <daposon1@gmail.com>
 inputs:
   artifact:
@@ -22,11 +22,6 @@ inputs:
       It might be useful when path input variable is composed dynamically from existing directory paths on Windows.
     default: 'false'
     required: false
-  reporter:
-    description: |
-      Format of test results. Supported options:
-        - java-junit
-    required: true
   list-suites:
     description: |
       Limits which test suites are listed. Supported options:

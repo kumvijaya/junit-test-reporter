@@ -1,5 +1,5 @@
 {
-  "name": "test-check",
+  "name": "junit-test-reporter",
   "version": "0.0.0",
   "private": true,
   "description": "Presents test results from junit testing framework as Github check run",
@@ -14,7 +14,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/daposon1/test-check.git"
+    "url": "git+https://github.com/daposon1/junit-test-reporter.git"
   },
   "keywords": [
     "actions",
