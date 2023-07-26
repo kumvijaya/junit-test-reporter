@@ -1,7 +1,7 @@
 name: Test Reporter
 description: |
-  Shows test results in GitHub UI: .NET (xUnit, NUnit, MSTest), Dart, Flutter, Java (JUnit), JavaScript (JEST, Mocha)
-author: Michal Dorner <dorner.michal@gmail.com>
+  Shows test results in GitHub UI: Java (JUnit)
+author: daposon1 <daposon1@gmail.com>
 inputs:
   artifact:
     description: Name or regex of artifact containing test results
@@ -25,12 +25,7 @@ inputs:
   reporter:
     description: |
       Format of test results. Supported options:
-        - dart-json
-        - dotnet-trx
-        - flutter-json
         - java-junit
-        - jest-junit
-        - mocha-json
     required: true
   list-suites:
     description: |
